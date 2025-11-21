@@ -1,0 +1,19 @@
+<%- include('includes/header.ejs') %>
+    <link rel="stylesheet" href="/css/details.css">
+
+<body>
+    <div class="container">
+        <h1><%= data.name %></h1>
+        <p><%= data.bio %></p>
+        <p><%= data.email %></p><br>
+        <p>Followers: <%= data.followers %></p>
+        <p>Following: <%= data.following %></p>
+        <p><%= data.tweets %></p>
+        <span>
+            <button>Follow</button>
+            <button>Message</button>
+        </span>
+    </div>
+</body>
+</head>
+</html>

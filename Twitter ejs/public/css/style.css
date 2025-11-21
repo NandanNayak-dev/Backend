@@ -1,0 +1,77 @@
+body {
+    background-color: rgb(58, 136, 246);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+
+    /* Fade-in animation */
+    animation: bodyFade 1s ease-in-out;
+}
+
+div {
+    height: 400px;
+    width: 400px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid #333;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+
+  
+    animation: cardPop 0.8s ease-out;
+    
+    
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+div:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+
+
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+img:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+
+@keyframes bodyFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+@keyframes cardPop {
+    0% {
+        transform: translate(-50%, -40%) scale(0.85);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}

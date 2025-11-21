@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Aarav Mehta",
+    "username": "aarav_m",
+    "bio": "Love coding and coffee!",
+    "email": "aarav@example.com",
+    "followers": 120,
+    "following": 80,
+    "tweets": ["Hello Twitter!", "Coffee is life."]
+  },
+  {
+    "name": "Diya Sharma",
+    "username": "diya_s",
+    "bio": "Travel. Food. Art.",
+    "email": "diya@example.com",
+    "followers": 250,
+    "following": 190,
+    "tweets": ["Sunsets are my favourite!", "New travel vlog soon!"]
+  },
+  {
+    "name": "Nitin Rao",
+    "username": "nitin_rao",
+    "bio": "Full-stack developer.",
+    "email": "nitin@example.com",
+    "followers": 98,
+    "following": 140,
+    "tweets": ["Learning Express.js!", "Debugging is therapy."]
+  },
+  {
+    "name": "Sara Fernandes",
+    "username": "sara_f",
+    "bio": "Cinephile. Writer.",
+    "email": "sara@example.com",
+    "followers": 310,
+    "following": 210,
+    "tweets": ["Movie marathon tonight!", "Writing my next story."]
+  },
+  {
+    "name": "Kabir Singh",
+    "username": "kabir_s",
+    "bio": "Fitness and motivation.",
+    "email": "kabir@example.com",
+    "followers": 540,
+    "following": 320,
+    "tweets": ["Never skip leg day!", "Stay strong 💪"]
+  },
+  {
+    "name": "Meera Nair",
+    "username": "meera_n",
+    "bio": "Reader | Thinker | Learner",
+    "email": "meera@example.com",
+    "followers": 220,
+    "following": 180,
+    "tweets": ["Books are magical.", "Reading all day!"]
+  },
+  {
+    "name": "Yash Patil",
+    "username": "yash_p",
+    "bio": "Tech enthusiast.",
+    "email": "yash@example.com",
+    "followers": 150,
+    "following": 200,
+    "tweets": ["Trying out new gadgets!", "Tech reviews coming soon."]
+  },
+  {
+    "name": "Ananya Gupta",
+    "username": "ananya_g",
+    "bio": "Designer & Illustrator.",
+    "email": "ananya@example.com",
+    "followers": 600,
+    "following": 340,
+    "tweets": ["New artwork dropping soon!", "Sketching all day 🎨"]
+  },
+  {
+    "name": "Rohan Das",
+    "username": "rohan_d",
+    "bio": "Gaming + Music",
+    "email": "rohan@example.com",
+    "followers": 420,
+    "following": 380,
+    "tweets": ["GG WP 🔥", "New song playlist!"]
+  },
+  {
+    "name": "Priya Iyer",
+    "username": "priya_i",
+    "bio": "Student | Learner",
+    "email": "priya@example.com",
+    "followers": 130,
+    "following": 90,
+    "tweets": ["Started learning JavaScript!", "Consistency is key."]
+  }
+]
