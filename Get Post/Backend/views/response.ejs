@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Poppins, sans-serif;
+            background: linear-gradient(135deg, #16a97f, #36aff6);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        .box {
+            background-color: aliceblue;
+            padding: 30px 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            height: 150px;
+            width: 350px;
+            color: #000000;
+        }
+        h1, h2 {
+            margin: 10px 0;
+            font-weight: 600;
+        }
+        h1 { font-size: 28px; }
+        h2 { font-size: 22px; opacity: 0.85; }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1 style="color: red;">Are these your details??</h1>
+        <h3>Your Name :<%= dataname %></h3>
+        <h4>Your Password :<%= datapass %></h4>
+    </div>
+</body>
+</html>
