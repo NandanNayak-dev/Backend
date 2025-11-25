@@ -1,0 +1,32 @@
+body{
+    margin:0;
+    padding:0;
+    font-family:sans-serif;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:#f4f4f4;
+}
+
+h1{
+    margin:0 0 10px;
+}
+
+h2{
+    margin:0 0 20px;
+    color:#333;
+}
+
+a{
+    padding:10px 18px;
+    background:#007bff;
+    color:#fff;
+    text-decoration:none;
+    border-radius:6px;
+}
+
+a:hover{
+    background:#005fcc;
+}
