@@ -12,6 +12,13 @@
     <div>
         <% todos.forEach((todo) => { %>
             <p><%=todo %></p>
+            <form action="http://localhost:8080/<%=todos.indexOf(todo)%>?_method=DELETE" method="post">
+            <button>Delete</button>
+        </form>
+
+       <form action="http://localhost:8080/<%=todos.indexOf(todo)%>" method="get">
+        <button>Edit</button>
+       </form>
         <% }) %>
         </div>
 

@@ -26,5 +26,21 @@ app.post('/create',(req,res)=>{
     console.log(value);
     res.redirect('/');
 })
+app.delete('/:id',(req,res)=>{
+    let id=req.params.id;
+    console.log(id);
+    todos.splice(id,1);
+    res.redirect('/');
+})
+
+app.get('/:id',(req,res)=>{
+    res.render('edit',{id:req.params.id})
+})
+app.patch('/:id',(req,res)=>{
+    let value=req.body.content;
+    let id=req.params.id;
+    todos[id]=value;
+    res.redirect('/');
+})
 
 app.listen(port,()=>console.log(`Server running on port ${port}`));
