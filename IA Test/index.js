@@ -55,3 +55,33 @@ catch(e){
     res.send("Error occurred");
   }
 });
+
+//ADD STUDENT ROUTE
+app.get("/add",(req,res)=>{
+  res.render("add");
+})
+app.post("/home",(req,res)=>{
+  var name=req.body.name;
+  var usn=req.body.usn;
+  var email=req.body.email;
+  console.log(name);
+  console.log(usn);
+  console.log(email);
+  let q1=`INSERT INTO student (usn,name,email) VALUES ('${usn}','${name}','${email}')`;
+  try{
+    connection.query(q1,(err,result)=>{
+      if(err) throw err;
+      
+      let q2=`INSERT INTO marks (usn,marksIA1,marksIA2,marksIA3) VALUES ('${usn}','${req.body.marksIA1}','${req.body.marksIA2}','${req.body.marksIA3}')`;
+      connection.query(q2,(err,result)=>{
+        if(err) throw err;
+        res.redirect("/");
+      });
+})
+}
+catch(e){
+    console.log(e);
+    res.send("Error occurred");
+  }
+  
+});
