@@ -25,6 +25,15 @@
         th {
             background-color: #f2f2f2;
         }
+        #Add {
+            margin-top: 20px;
+            margin-left: 350px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -45,13 +54,18 @@
                     <button>View Score</button>
                 </form>
             </td>
+            <td>
+                <form action="/delete/<%= data[i].usn %>/<%= data[i].name %>/<%= data[i].email %>?_method=DELETE" method="POST" >
+                    <button>Delete</button>
+                </form>
+            </td>
         </tr>
         <% } %>
         
     </table>
 
     <form action="/add" method="get">
-        <button>Add Student</button>
+        <button id="Add">Add Student</button>
     </form>
 
     

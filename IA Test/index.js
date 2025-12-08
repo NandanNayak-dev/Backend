@@ -70,7 +70,10 @@ app.post("/home",(req,res)=>{
   let q1=`INSERT INTO student (usn,name,email) VALUES ('${usn}','${name}','${email}')`;
   try{
     connection.query(q1,(err,result)=>{
-      if(err) throw err;
+      if(err){
+        res.render("usnexist");
+        return;
+      }
       
       let q2=`INSERT INTO marks (usn,marksIA1,marksIA2,marksIA3) VALUES ('${usn}','${req.body.marksIA1}','${req.body.marksIA2}','${req.body.marksIA3}')`;
       connection.query(q2,(err,result)=>{
@@ -85,3 +88,62 @@ catch(e){
   }
   
 });
+
+//DELETE ROUTE
+
+app.delete("/delete/:usn/:name/:email", (req, res) => {
+  let usn=req.params.usn; 
+  let name=req.params.name;
+  let email=req.params.email;
+
+  let q1=`DELETE FROM marks WHERE usn='${usn}'`;
+  try{
+    connection.query(q1,(err,result)=>{
+      if(err) throw err;
+      let q2=`DELETE FROM student WHERE usn='${usn}'`;
+      connection.query(q2,(err,result)=>{
+        if(err) throw err;
+        res.redirect("/");
+      });
+    });
+  }
+  catch(e){
+    console.log(e);
+    res.send("Error occurred");
+  }
+});
+
+app.get("/edit/:usn/:marksIA1/:marksIA2/:marksIA3",(req,res)=>{
+
+  let usn=req.params.usn;
+  let marksIA1=req.params.marksIA1;
+  let marksIA2=req.params.marksIA2;
+  let marksIA3=req.params.marksIA3;
+  console.log(usn);
+  console.log(marksIA1);
+  console.log(marksIA2);
+  console.log(marksIA3);
+  res.render("edit",{usn:usn,marksIA1:marksIA1,marksIA2:marksIA2,marksIA3:marksIA3});
+});
+
+app.patch("/edit",(req,res)=>{
+  let usn=req.body.usn;
+  let marksIA1=req.body.marksIA1;
+  let marksIA2=req.body.marksIA2;
+  let marksIA3=req.body.marksIA3;
+  
+  console.log(marksIA1);
+  console.log(marksIA2);
+  console.log(marksIA3);
+  let q=`UPDATE marks SET marksIA1='${marksIA1}',marksIA2='${marksIA2}',marksIA3='${marksIA3}' WHERE usn='${req.body.usn}'`;
+  try{
+    connection.query(q,(err,result)=>{
+      if(err) throw err;
+      res.redirect("/");
+    });
+  }
+  catch(e){
+    console.log(e);
+    res.send("Error occurred");
+  }
+})

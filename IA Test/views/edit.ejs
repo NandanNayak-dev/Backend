@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Student</title>
+    <title>Edit</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,21 +26,16 @@
     </style>
 </head>
 <body>
-    <h1>Add New Student</h1>
-    <form action="/home/" method="post">
-        <input type="text" name="name" value="" placeholder="Name" required><br><br>
-        <input type="text" name="usn" value="" placeholder="USN" required><br><br>
-        <input type="email" name="email" value="" placeholder="Email" required><br><br>
-
+    <form action="/edit?_method=PATCH" method="post">
         <h1>Marks</h1>
+        <label for="usn">USN</label><br>
+        <input type="text" name="usn" value="" id="usn"><br><br>
         <label for="IA1">Marks IA1</label><br>
         <input type="number" name="marksIA1" value="" id="IA1"><br><br>
         <label for="IA2">Marks IA2</label><br>
         <input type="number" name="marksIA2" value="" id="IA2"><br><br>
         <label for="IA3">Marks IA3</label><br>
         <input type="number" name="marksIA3" value="" id="IA3"><br><br>
-
-
         <button>Submit</button>
     </form>
 </body>
