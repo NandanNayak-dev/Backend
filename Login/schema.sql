@@ -1,0 +1,7 @@
+CREATE DATABASE IF NOT EXISTS loginpage;
+USE loginpage;
+
+CREATE TABLE IF NOT EXISTS accounts(
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(50) NOT NULL UNIQUE
+);

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fafafa;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        div {
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 80%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Account</h1>
+    <div>
+        <form action="/confirm" method="post">
+            <label for="NAME">Enter Name</label>
+            <input type="text" id="NAME" placeholder="Username" required name="username">
+            <br><br>
+            <label for="PASSWORD">Enter Password</label>
+            <input type="password" id="PASSWORD" placeholder="Password" required name="password">
+            <br><br>
+            <button>Create</button>
+        </form>
+    </div>
+
+    <div>
+        <h1>Login</h1>
+        <form action="/login" method="post">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <button>Login</button>
+        </form>
+    </div>
+</body>
+</html>
