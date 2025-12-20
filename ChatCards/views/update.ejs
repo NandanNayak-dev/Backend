@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+</head>
+<body>
+    <p>This message is sent from <%= from %> to <%= to %></p>
+    <p>And the Previous message was: <%= msg %></p>
+    <form action="/update/<%= id %>?_method=PATCH" method="post">
+        
+        <textarea name="msg" ></textarea>
+        <button >Update</button>
+    </form>
+</body>
+</html>
