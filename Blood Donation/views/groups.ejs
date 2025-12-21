@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #f4f7fb;
+            text-align: center;
+        }
+        h1{
+            text-align: center;
+             font-family: Arial, Helvetica, sans-serif;
+             color: #c62828;
+        }
+        div{
+            text-align: center;
+            margin-top: 50px;
+            height: 200px;
+            width: 500px;
+            background-color: #f4f7fb;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        button{
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            
+        }
+        button:hover{
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Blood Groups</h1>
+    <form action="/" method="get">
+        <button>Back</button>
+    </form>
+    <div>
+        <form action="grouped" method="post">
+        <button id="A+" name="bg" value="A+">A+</button>
+        <button id="A-" name="bg" value="A-">A-</button>
+        <button id="B+" name="bg" value="B+">B+</button>
+        <button id="B-" name="bg" value="B-">B-</button>
+        <button id="O+" name="bg" value="O+">O+</button>
+        <button id="O-" name="bg" value="O-">O-</button>
+        <button id="AB+" name="bg" value="AB+">AB+</button>
+        <button id="AB-" name="bg" value="AB-">AB-</button>
+    </form>
+    </div>
+</body>
+</html>

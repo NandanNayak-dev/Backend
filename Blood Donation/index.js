@@ -25,3 +25,48 @@ async function main() {
 app.get('/',(req,res)=>{
     res.render('home.ejs')
 })
+app.get('/list',async(req,res)=>{
+    const allDonors=await Donation.find({})
+    res.render('list.ejs',{allDonors})
+})
+app.get('/back',async(req,res)=>{
+  res.redirect("/")
+})
+app.get('/create',(req,res)=>{
+  res.render('create.ejs')
+})
+
+app.post('/created',async(req,res)=>{
+    console.log(req.body.name)
+    console.log(req.body.email)
+    console.log(req.body.bloodGroup)
+    const newDonor=new Donation({
+        name: req.body.name,
+        email: req.body.email,
+        bloodGroup: req.body.bloodGroup,
+        date: new Date()
+    })
+    try{
+        await newDonor.save()
+        res.redirect("/list")
+    }
+    catch(err){
+        res.send("Error! Info Already Exists")
+    }
+
+    
+})
+
+app.get('/groups',(req,res)=>{
+    res.render('groups.ejs')
+})
+app.post('/grouped',async(req,res)=>{
+    const bg=req.body.bg
+    const allDonors=await Donation.find({bloodGroup:bg})
+    if(allDonors.length==0){
+        res.render('nodonors.ejs')
+    }
+    else{
+        res.render('finalgrp.ejs',{allDonors})
+    }
+})
