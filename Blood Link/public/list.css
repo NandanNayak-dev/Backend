@@ -45,12 +45,14 @@ form button:hover {
 }
 
 .card {
+    position: relative;
     background-color: #ffffff;
     width: 300px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 10px;
 }
 
 .card:hover {
@@ -68,4 +70,21 @@ form button:hover {
     color: #555;
     font-size: 15px;
     margin-bottom: 8px;
+}
+.delete {
+    background-color: white;
+    color: #c62828;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.delete:hover {
+    background-color: #c62828;
+    color: white;
 }
