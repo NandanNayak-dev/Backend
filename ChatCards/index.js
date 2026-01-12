@@ -40,8 +40,8 @@ app.get("/chats/new",(req,res)=>{
   res.render("new.ejs")
 })
 
-app.post("/chats",async(req,res,next)=>{
-  try{
+app.post("/chats", asyncWrap(async(req,res,next)=>{
+  
     let from=req.body.from;
   let to=req.body.to;
   let msg=req.body.msg;
@@ -53,55 +53,58 @@ app.post("/chats",async(req,res,next)=>{
   })
   await newChat.save();
   res.redirect("/chats")
-  }
-  catch(e){
-    next(e);
-  }
-  
-  
-})
+
+}))
+//******************** Async Wrapper to handle errors in async functions ********************//
 //********************/
+function asyncWrap(fn){
+  return function(req,res,next){
+    fn(req,res,next).catch(err=>next(err));
+  }
+}
+
 //Update
-app.get("/update/:id",async(req,res,next)=>{
-  try{
+app.get("/update/:id",asyncWrap(async(req,res,next)=>{
     let id=req.params.id;
   let chats=await Chat.findById( req.params.id);
   if(!chats){
     next(new ExpressError(404,"Chat Not Found"))
   } 
   res.render("update.ejs",{id:req.params.id,from:chats.from,to:chats.to,msg:chats.msg})
-  }
-  catch(e){
-    next(e);
-  }
-})
+  
+}))
 //Patch
-app.patch("/update/:id",async(req,res)=>{
-  try{
+app.patch("/update/:id",asyncWrap(async(req,res)=>{
     let id=req.params.id;
   let newmsg=req.body.msg;
   await Chat.findByIdAndUpdate(id,{$set:{msg:newmsg}});
   res.redirect("/chats")
-  }
-  catch(e){
-    next(e);
-  }
   
-})
+  
+}))
 //Delete
-app.delete("/chats/:id",async(req,res)=>{
-  try{
+app.delete("/chats/:id", asyncWrap(async(req,res)=>{
     let id=req.params.id;
   await Chat.findByIdAndDelete(id);
   res.redirect("/chats")
+}))
+
+const handleValidationErr=(err)=>{
+  console.log(err.message);
+  return err;
+}
+
+app.use((err,req,res,next)=>{
+  console.log(err.name)
+  if(err.name==="ValidationError"){
+    err=handleValidationErr(err);
   }
-  catch(e){ 
-    next(e);
-  }
+  next(err);
 })
+
 app.use((err,req,res,next)=>{
   let {status=500,message="Something went wrong"}=err;
   res.status(status).send(message);
 })
-//Error handling middleware
+//Error handling middleware^^^^
 
