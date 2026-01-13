@@ -21,6 +21,12 @@ app.listen(8080,()=>{
 async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/TODOAPP');
 }
+// function validateTodo(req, res, next) {
+//   if (!req.body.message || req.body.message.trim() === "") {
+//     return res.status(400).send("Add something");
+//   }
+//   next();
+// }
 app.get('/',(req,res)=>{
     res.send("home")
 })
@@ -28,13 +34,20 @@ app.get('/',(req,res)=>{
 app.get('/todos',async(req,res)=>{
     try{
         const todos=await Todo.find({})
-        
         res.render("index",{todos})
     }
     catch(err){
         next(err)
     }
 })
+app.get('/todos/new',(req,res)=>{
+    res.render("new")
+})
+app.post('/todos/new',asyncWrap(async(req,res,next)=>{
+    const newTodo=new Todo(req.body)
+    await newTodo.save()
+    res.redirect('/todos')
+}))
 app.delete('/todos/:id',asyncWrap(async(req,res,next)=>{
     await Todo.findByIdAndDelete(req.params.id)
     res.redirect('/todos')
@@ -51,8 +64,18 @@ function asyncWrap(fn){
 
 //=================================
 //Error handling
+const handleValidationErr=(err)=>{
+  console.log(err.message);
+  return err;
+}
 app.use((err,req,res,next)=>{
-    console.log(err)
+  console.log(err.name)
+  if(err.name==="ValidationError"){
+    err=handleValidationErr(err);
+  }
+  res.status(400).send(err.message);
+})
+app.use((err,req,res,next)=>{
     res.status(500).send("Something went wrong")
 })
 app.use((req,res)=>{

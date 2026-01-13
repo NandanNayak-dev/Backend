@@ -4,16 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODOAPP</title>
+
+   <style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f9f9f9;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    form[action="/todos/new"] button {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-bottom: 15px;
+    }
+
+    div {
+        padding: 8px;
+        margin-bottom: 8px;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 3px;
+    }
+
+    div h3 {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    form[action*="_method=DELETE"] button {
+        padding: 3px 8px;
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    form[action*="_method=DELETE"] button:hover {
+        background-color: #c0392b;
+    }
+</style>
+
 </head>
 <body>
-    <% for(todo of todos){%>
+
+    <h1>Todo App</h1>
+
+    <form action="/todos/new" method="get">
+        <button>Add</button>
+    </form>
+
+    <% for(todo of todos){ %>
        <div>
         <h3><%= todo.message %></h3>
-        <p><%=todo._id %></p>
         <form action="/todos/<%= todo._id %>?_method=DELETE" method="POST">
             <button>Delete</button>
         </form>
        </div>
     <% } %>
+
 </body>
 </html>
