@@ -28,13 +28,28 @@ app.get('/',(req,res)=>{
 app.get('/todos',async(req,res)=>{
     try{
         const todos=await Todo.find({})
+        
         res.render("index",{todos})
     }
     catch(err){
         next(err)
     }
 })
+app.delete('/todos/:id',asyncWrap(async(req,res,next)=>{
+    await Todo.findByIdAndDelete(req.params.id)
+    res.redirect('/todos')
+}))
 
+//Async wrapper function to handle errors in async functions
+function asyncWrap(fn){
+    return function(req,res,next){
+        fn(req,res,next).catch(next)
+    }
+}
+//================================
+
+
+//=================================
 //Error handling
 app.use((err,req,res,next)=>{
     console.log(err)
