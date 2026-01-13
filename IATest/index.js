@@ -56,7 +56,7 @@ catch(e){
   }
 });
 
-//ADD STUDENT ROUTE
+//ADD STUDENT ROUTE--
 app.get("/add",(req,res)=>{
   res.render("add");
 })
