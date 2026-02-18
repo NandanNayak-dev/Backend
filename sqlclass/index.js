@@ -39,23 +39,8 @@ function getRandomUser() {
 
 
 // connection.end();
-//Home route
-app.get("/", (req, res) => {
-  let q=`SELECT count(*) FROM user7`;
 
-  try{
-    connection.query(q,(err,result)=>{
-      if(err) throw err;
-      let count=result[0]['count(*)'];
-      console.log(result)
-      res.render("home.ejs",{count:count});
 
-    });
-  }catch(e){
-    console.log(e);
-    res.send("Error occurred");
-  }
-});
 
 //Show route
 app.get("/user",(req,res)=>{
